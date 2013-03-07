@@ -1,0 +1,26 @@
+setenv LD_LIBRARY_PATH ./native/target
+
+setenv REPO /Users/DTompkins/.m2/repository
+setenv XBEAN ${REPO}/org/apache/xmlbeans/xmlbeans/2.4.0/xmlbeans-2.4.0.jar
+setenv JUNIT ${REPO}/junit/junit/4.8.2/junit-4.8.2.jar
+setenv HIBERNATE ${REPO}/org/hibernate/hibernate-core/4.1.4.Final/hibernate-core-4.1.4.Final.jar
+setenv HIBERNATE_COMMONS ${REPO}/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar
+setenv HIBERNATE_C3PO ${REPO}/org/hibernate/hibernate-c3p0/4.1.4.Final/hibernate-c3p0-4.1.4.Final.jar
+setenv JBOSS_LOGGING ${REPO}/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar
+setenv DOM4J ${REPO}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+setenv LOG4J ${REPO}/log4j/log4j/1.2.16/log4j-1.2.16.jar
+setenv JTA ${REPO}/javax/transaction/jta/1.1/jta-1.1.jar
+setenv SLF4J ${REPO}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar
+setenv SLF4J_LOG ${REPO}/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar
+setenv PERSISTENCE ${REPO}/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar
+setenv HIBERNATE_PERSISTENCE ${REPO}/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+setenv BSA ./java/target/bsa-jar-1.0.0.jar 
+setenv MYSQL ${REPO}/mysql/mysql-connector-java/5.0.8/mysql-connector-java-5.0.8.jar
+setenv JAVASSIST ${REPO}/javassist/javassist/3.8.0.GA/javassist-3.8.0.GA.jar
+setenv ANTLR ${REPO}/antlr/antlr/2.7.7/antlr-2.7.7.jar
+setenv C3PO ${REPO}/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+
+setenv CP ${XBEAN}:${JUNIT}:${HIBERNATE}:${HIBERNATE_COMMONS}:${HIBERNATE_C3PO}:${JBOSS_LOGGING}:${DOM4J}:${LOG4J}:${JTA}:${SLF4J}:${SLF4J_LOG}:${PERSISTENCE}:${HIBERNATE_PERSISTENCE}:${MYSQL}:${JAVASSIST}:${ANTLR}:${C3PO}:${BSA}
+
+/bin/rm -rf /Users/DTompkins/src/bsa/native/target/libnative.jnilib
+/bin/ln -s /Users/DTompkins/src/bsa/native/target/bsa-native.jnilib /Users/DTompkins/src/bsa/native/target/libnative.jnilib

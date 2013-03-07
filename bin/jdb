@@ -1,0 +1,8 @@
+#!/bin/csh
+
+source bin/env
+
+setenv SP src
+
+jdb -classpath ${CP} -sourcepath ${SP} org.dt.bsa.test.Test
+

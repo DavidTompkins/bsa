@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="hibernate.connection.url">jdbc:mysql://localhost/bsa_development</property>
+        <property name="hibernate.connection.username">bsa_user</property>
+        <property name="hibernate.connection.password">bsa210077</property>
+	<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+	<!-- Hibernate debug settings -->
+	<!--
+        <property name="show_sql">true</property>
+	<property name="format_sql">true</property>
+	-->
+	
+	<!-- Drop and re-create the database schema on startup -->
+	<!--
+	<property name="hbm2ddl.auto">create</property>
+	-->
+
+	<!-- configuration pool via c3p0--> 
+	<property name="c3p0.acquire_increment">1</property> 
+	<property name="c3p0.idle_test_period">100</property> <!-- seconds --> 
+	<property name="c3p0.max_size">10</property> 
+	<property name="c3p0.max_statements">0</property> 
+	<property name="c3p0.min_size">1</property> 
+	<property name="c3p0.timeout">100</property> <!-- seconds --> 
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- JPA Annotated Entity Classes -->
+	<mapping class="org.dt.bsa.genetic.impl.BaseEvolutionManagerImpl"></mapping>
+	<mapping class="org.dt.bsa.genetic.impl.ThreadedEvolutionManager"></mapping>
+
+	<mapping class="org.dt.bsa.genetic.impl.BaseGenerationImpl"></mapping>
+	<mapping class="org.dt.bsa.genetic.impl.SingleGeneration"></mapping>
+
+	<mapping class="org.dt.bsa.genetic.impl.BasePhenotypeImpl"></mapping>
+	<mapping class="org.dt.bsa.genetic.impl.BlackBoxPhenotype"></mapping>
+	<mapping class="org.dt.bsa.genetic.impl.BlackBoxBinaryPhenotype"></mapping>
+	<mapping class="org.dt.bsa.genetic.impl.NetworkPhenotype"></mapping>
+
+	<mapping class="org.dt.bsa.network.impl.BaseNetworkImpl"></mapping>
+	<mapping class="org.dt.bsa.network.impl.NetworkImpl"></mapping>
+	<mapping class="org.dt.bsa.network.impl.InlineNetworkImpl"></mapping>
+	<mapping class="org.dt.bsa.network.impl.NativeNetworkImpl"></mapping>
+	<mapping class="org.dt.bsa.network.impl.ThreadedNetworkImpl"></mapping>
+	    
+	<mapping class="org.dt.bsa.data.impl.TickerImpl"></mapping>
+	<mapping class="org.dt.bsa.data.impl.TickerSampleImpl"></mapping>
+
+    </session-factory>
+
+</hibernate-configuration>

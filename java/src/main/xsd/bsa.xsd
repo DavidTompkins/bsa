@@ -1,0 +1,96 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- 
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+// network.xsd - xml schema for the basic strategy architecture //
+//                                                              //
+// David Tompkins - 4/24/2007                                   //
+//                                                              //
+// http://dt.org/                                               //
+//                                                              //
+// Copyright (c) 2007 by David Tompkins.                        //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+//                                                              //
+// This program is free software; you can redistribute it       //
+// and/or modify it under the terms of the GNU General Public   //
+// License as published by the Free Software Foundation.        //
+//                                                              //
+// This program is distributed in the hope that it will be      //
+// useful, but WITHOUT ANY WARRANTY; without even the implied   //
+// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      //
+// PURPOSE. See the GNU General Public License for more details //
+//                                                              //
+// You should have received a copy of the GNU General Public    //
+// License along with this program; if not, write to the Free   //
+// Software Foundation, Inc., 59 Temple Place, Suite 330,       //
+// Boston, MA 02111-1307 USA                                    //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bsa="http://dt.org/bsa/xml" targetNamespace="http://dt.org/bsa/xml" elementFormDefault="qualified">
+
+  <xsd:complexType name="network">
+    <xsd:sequence>
+      <!-- network name -->
+      <xsd:element name="name" type="xsd:string"/>
+      <!-- network description -->
+      <xsd:element name="description" type="xsd:string"/>
+      <!-- network input dimension -->
+      <xsd:element name="inputDimension" type="xsd:int"/>
+      <!-- network hidden dimension -->
+      <xsd:element name="hiddenDimension" type="xsd:int"/>
+      <!-- network output dimension -->
+      <xsd:element name="outputDimension" type="xsd:int"/>
+      <!-- network learning rate -->
+      <xsd:element name="learningRate" type="xsd:double"/>
+      <!-- network training description -->
+      <xsd:element name="trainingDescription" type="xsd:string"/>
+      <!-- network layers -->
+      <xsd:element name="layers">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="layer" type="bsa:layer" minOccurs="1" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>  
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="layer">
+    <xsd:sequence>
+      <!-- layer input dimension -->
+      <xsd:element name="inputDimension" type="xsd:int"/>
+      <!-- layer output dimension -->
+      <xsd:element name="outputDimension" type="xsd:int"/>
+      <!-- layer nodes -->
+      <xsd:element name="nodes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="node" type="bsa:node" minOccurs="1" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>  
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+      
+  <xsd:complexType name="node">
+    <xsd:sequence>
+      <!-- node input dimension -->
+      <xsd:element name="inputDimension" type="xsd:int"/>
+      <!-- connection weights -->
+      <xsd:element name="weights">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="weight" type="xsd:double" minOccurs="1" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>  
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
