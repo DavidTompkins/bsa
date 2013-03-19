@@ -13,7 +13,7 @@ A fully-connected neural network is instantiated with L input nodes, M internal 
 
 The variables L, M, N, and D are optimized using a genetic evolution algorithm in which the genome is the binary representation of these values. Phenotype fitness is measured as the success rate of the network to classify known inputs from the training samples t(t). Phenotype evolution uses genetic crossover, mutation, and elitism, and each successive generation includes the most successful phenotypes from the previous generation competing against a new generation of genetic successors. Evolution can be configured to end when the percentage change in success rate drops below a threshold value.
 
-## How is it implemented
+## How it is implemented
 
 The primary code is in Java, and it has been recently updated (2012) to use maven rather than ant. The neural network algorithms are multithreaded and the number of threads can be tuned to fit the performance of the resident hardware. There is native C code for high-performance sections of the neural network algorithms. The backend database is assumed to be MySQL, although it uses hibernate and it can be reconfigured easily for other databases. There are test cases for all aspects of the neural network and genetic algorithms, and there are test cases for a variety of input sources. There are also some code-specific test cases for the use of xmlbeans, hibernate, network persistence, and memory management. JUnit is used to run the tests; tests are specified by annotation.
 
