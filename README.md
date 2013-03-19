@@ -4,7 +4,7 @@ BSA is a Bayesian neural network classifier for time series data with genetic ne
 
 ## How it works
 
-An input time series 's(t)' is preprocessed into a set of network training samples 't(t)' such that for all 't':
+An input time series `s(t)` is preprocessed into a set of network training samples 't(t)' such that for all 't':
 
 - The inputs for each training sample are the 'L' samples of 's(t)' in '(s(t-L), s(t))'
 - The outputs for each training sample are the posterior classification probabilities for 'N' discrete classes that characterize the percentage change in 's(t+D)' relative to 's(t)' for some forward distance 'D'. The sum of the 'N' class probabilities is 1.0.
