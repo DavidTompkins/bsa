@@ -19,6 +19,18 @@ The primary code is in Java, and it has been recently updated (2012) to use mave
 
 A web application, implemented in Ruby on Rails, provides a monitoring user interface for evolution in progress, with displays to list all current phenotypes, success rates, and estimated time to completion for each generation.
 
+## How do you build it, test it, and use it
+
+The native code must be built first, following by a full build of all modules. From the project root directory:
+
+1. mvn clean install -pl native
+1. mvn clean install
+
+The test cases will be run via surefire as part of the full build; *this will take a long time*, as some of the genetic evolutions tests are substantial. To run the build without running the test cases:
+
+1. mvn clean install -pl native
+1. mvn clean install -Dmaven.test.skip=true
+
 ## What features are next
 
 A prototype using hadoop for neural network training is currently being tested using AWS for hadoop cluster deployment.
