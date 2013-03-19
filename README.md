@@ -6,8 +6,8 @@ BSA is a Bayesian neural network classifier for time series data with genetic ne
 
 An input time series s(t) is preprocessed into a set of network training samples t(t) such that for all t:
 
--- The inputs for each training sample are the L samples of s(t) in (s(t-L), s(t))
--- The outputs for each training sample are the posterior classification probabilities for N discrete classes that characterize the percentage change in s(t+D) relative to s(t) for some forward distance D. The sum of the N class probabilities is 1.0.
+- The inputs for each training sample are the L samples of s(t) in (s(t-L), s(t))
+- The outputs for each training sample are the posterior classification probabilities for N discrete classes that characterize the percentage change in s(t+D) relative to s(t) for some forward distance D. The sum of the N class probabilities is 1.0.
 
 A fully-connected neural network is instantiated with L input nodes, M internal nodes, N output nodes, and random weights.  This network is trained using the prepared training samples t(t) for all t. The network supports a variety of non-linear activation functions for forward propagation, and it uses back propagation for error propagation. In addition, a variety of preprocessing techniques can be used on the input data prior to the creation of training samples.
 
