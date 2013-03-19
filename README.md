@@ -4,14 +4,14 @@ BSA is a Bayesian neural network classifier for time series data with genetic ne
 
 ## How it works
 
-An input time series s(t) is preprocessed into a set of network training samples t(t) such that for all t:
+An input time series 's(t)' is preprocessed into a set of network training samples 't(t)' such that for all 't':
 
-- The inputs for each training sample are the L samples of s(t) in (s(t-L), s(t))
-- The outputs for each training sample are the posterior classification probabilities for N discrete classes that characterize the percentage change in s(t+D) relative to s(t) for some forward distance D. The sum of the N class probabilities is 1.0.
+- The inputs for each training sample are the 'L' samples of 's(t)' in '(s(t-L), s(t))'
+- The outputs for each training sample are the posterior classification probabilities for 'N' discrete classes that characterize the percentage change in 's(t+D)' relative to 's(t)' for some forward distance 'D'. The sum of the 'N' class probabilities is 1.0.
 
-A fully connected neural network is instantiated with L input nodes, M internal nodes, N output nodes, and random weights.  This network is trained using the prepared training samples t(t) for all t. The network supports a variety of non-linear activation functions for forward propagation, and it uses back propagation for error propagation. In addition, a variety of preprocessing techniques can be used on the input data prior to the creation of training samples.
+A fully connected neural network is instantiated with 'L' input nodes, 'M' internal nodes, 'N' output nodes, and random weights.  This network is trained using the prepared training samples 't(t)' for all 't'. The network supports a variety of non-linear activation functions for forward propagation, and it uses back propagation for error propagation. In addition, a variety of preprocessing techniques can be used on the input data prior to the creation of training samples.
 
-The variables L, M, N, and D are optimized using a genetic evolution algorithm in which the genome is the binary representation of these values. Phenotype fitness is measured as the success rate of the network to classify known inputs from the training samples t(t). Phenotype evolution uses genetic crossover, mutation, and elitism, and each successive generation includes the most successful phenotypes from the previous generation competing against a new generation of genetic successors. Evolution can be configured to end when the percentage change in success rate drops below a threshold value.
+The variables 'L', 'M', 'N', and 'D' are optimized using a genetic evolution algorithm in which the genome is the binary representation of these values. Phenotype fitness is measured as the success rate of the network to classify known inputs from the training samples 't(t)'. Phenotype evolution uses genetic crossover, mutation, and elitism, and each successive generation includes the most successful phenotypes from the previous generation competing against a new generation of genetic successors. Evolution can be configured to end when the percentage change in success rate drops below a threshold value.
 
 ## How it is implemented
 
@@ -23,15 +23,15 @@ A web application, implemented in Ruby on Rails, provides a monitoring user inte
 
 The native code must be built first, following by a full build of all modules. From the project root directory:
 
-1. mvn clean install -pl native
-1. mvn clean install
+1. 'mvn clean install -pl native'
+1. 'mvn clean install'
 
-The test cases will be run via surefire as part of the full build; *this will take a long time*, as some of the genetic evolutions tests are substantial. The test cases will be logged to java/target/surefire-reports. To run the build without running the test cases:
+The test cases will be run via surefire as part of the full build; *this will take a long time*, as some of the genetic evolution tests are substantial. The test cases will be logged to 'java/target/surefire-reports'. To run the build without running the test cases:
 
-1. mvn clean install -pl native
-1. mvn clean install -Dmaven.test.skip=true
+1. 'mvn clean install -pl native'
+1. 'mvn clean install -Dmaven.test.skip=true'
 
-Take a look at the test cases in BsaTest.java to see how BSA can be used. The tests use a naming convention that describes the aspects of BSA that are being exercised. Many tests approximate BSA during its full operating mode. See the tests prefixed with geneticThreadedNetworkGenomeTest for more information.
+Take a look at the test cases in 'BsaTest.java' to see how BSA can be used. The tests use a naming convention that describes the aspects of BSA that are being exercised. Many tests approximate BSA in its full operating mode. See the tests prefixed with 'geneticThreadedNetworkGenomeTest' for more information.
 
 ## What features are next
 
